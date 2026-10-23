@@ -54,7 +54,7 @@ Identify the SMB service and collect basic service fingerprinting information on
 - Scan completed for 1 configured host.
   
 ### Evidence
-Screenshot: `screenshots/metasploit-smb-version-scan.png`
+Screenshot: `screenshots/metasploit-smb-version-scan.png.png`
 
 
 ## Practical 2: SMB Share Enumeration
@@ -86,7 +86,7 @@ The scan discovered multiple SMB shares and identified a Samba server banner. Sh
 - Avoid exposing SMB services directly to untrusted networks.
 
 ### Evidence
-Add the terminal screenshot showing the enumeration results.
+Screenshots: `screenshots/metasploit-smb-shares.png`
 
 ### Learning Outcome
 Practiced configuring a Metasploit auxiliary module, enumerating SMB shares, and interpreting share types and server identification.
