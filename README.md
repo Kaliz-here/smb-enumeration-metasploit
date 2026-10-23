@@ -34,3 +34,32 @@ Practical execution and results will be documented here after testing.
 
 ## Disclaimer
 All testing is limited to systems I own or have explicit authorization to assess.
+
+
+## Practical 1: SMB Version Enumeration with Metasploit
+
+### Objective
+Identify the SMB service and collect basic service fingerprinting information on an authorized lab target.
+
+### Lab Details
+- **Tool:** Metasploit Framework
+- **Module:** `auxiliary/scanner/smb/smb_version`
+- **Target:** `192.168.1.45`
+- **Port:** `445/TCP`
+
+### Observed Results
+- SMB service detected.
+- Metasploit fingerprinting classified the host as Unix.
+- SMB signing was reported as not required.
+- Scan completed for 1 configured host.
+
+### Security Note
+SMB signing not being required may increase exposure to certain network-based attacks. Actual risk depends on the network environment and other security controls.
+
+### Evidence
+Screenshot: `screenshots/metasploit-smb-version-scan.png`
+
+### Learning Outcome
+Practiced selecting a Metasploit auxiliary module, configuring `RHOSTS` and `RPORT`, running an SMB enumeration scan, and interpreting its output.
+
+*Note: The reported OS classification is a fingerprinting result, not definitive proof of the target operating system.*
