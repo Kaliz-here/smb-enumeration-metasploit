@@ -55,3 +55,39 @@ Identify the SMB service and collect basic service fingerprinting information on
   
 ### Evidence
 Screenshot: `screenshots/metasploit-smb-version-scan.png`
+
+
+## Practical 2: SMB Share Enumeration
+
+### Objective
+Discover SMB shares exposed by an authorized lab server using Metasploit.
+
+### Lab Details
+- **Tool:** Metasploit Framework
+- **Module:** `auxiliary/scanner/smb/smb_enumshares`
+- **Target:** `192.168.1.45`
+- **Observed port:** `139/TCP`
+
+### Observed Results
+- `print$` — DISK; Printer Drivers
+- `tmp` — DISK; description: `oh noes!`
+- `opt` — DISK
+- `IPC$` — IPC
+- `ADMIN$` — IPC, as reported by the module
+- Server identification: `metasploitable server (Samba 3.0.20-Debian)`
+
+### Analysis
+The scan discovered multiple SMB shares and identified a Samba server banner. Share discovery alone does not establish read/write permissions or prove that the shares are vulnerable.
+
+### Security Recommendations
+- Upgrade unsupported Samba versions to a supported release.
+- Restrict SMB access to trusted hosts and networks.
+- Review share permissions and disable unnecessary shares.
+- Avoid exposing SMB services directly to untrusted networks.
+
+### Evidence
+Add the terminal screenshot showing the enumeration results.
+
+### Learning Outcome
+Practiced configuring a Metasploit auxiliary module, enumerating SMB shares, and interpreting share types and server identification.
+
