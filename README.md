@@ -91,3 +91,50 @@ Screenshots: `screenshots/metasploit-smb-shares.png`
 ### Learning Outcome
 Practiced configuring a Metasploit auxiliary module, enumerating SMB shares, and interpreting share types and server identification.
 
+
+## Practical 3: Anonymous SMB Share Access Verification
+
+### Objective
+Verify whether an SMB share can be accessed without providing a username or password in an authorized lab environment.
+
+### Tools Used
+- Kali Linux
+- `smbclient`
+
+### Target
+- Lab IP: `192.168.1.45`
+- Share: `tmp`
+
+### Commands Used
+```bash
+smbclient -L //192.168.1.45 -N
+smbclient //192.168.1.45/tmp -N
+```
+
+Inside the SMB session:
+```text
+ls
+exit
+```
+
+### Observed Results
+- Anonymous login was successful.
+- The server listed available SMB shares.
+- Anonymous access to the `tmp` share was successful.
+- Directory listing was available, showing entries such as `.ICE-unix` and `.X11-unix`.
+
+### Security Analysis
+Anonymous access can expose filenames and directory structure. The security impact depends on the sensitivity of the exposed information and the permissions granted to anonymous users. File read or write access was not verified in this practical.
+
+### Recommendations
+- Disable anonymous access if it is not required.
+- Restrict SMB shares to authorized users.
+- Review share and filesystem permissions.
+- Keep Samba updated to a supported version.
+
+### Evidence
+Screenshot : `screenshots/smb-anonymous-tmp-listing.png`
+
+### Learning Outcome
+Practiced listing SMB shares, connecting to a share anonymously, and verifying directory-listing access with `smbclient`.
+
