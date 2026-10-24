@@ -138,3 +138,36 @@ Screenshot : `screenshots/smb-anonymous-tmp-listing.png`
 ### Learning Outcome
 Practiced listing SMB shares, connecting to a share anonymously, and verifying directory-listing access with `smbclient`.
 
+
+## Practical 4: SMB Protocol Enumeration with Nmap
+
+### Objective
+Identify the SMB protocols supported by an authorized lab server.
+
+### Tool
+- Nmap
+
+### Command
+```bash
+sudo nmap -p 139,445 --script=smb-protocols 192.168.1.45
+```
+
+### Observed Results
+- Target host was reachable.
+- TCP ports 139 and 445 were open.
+- Nmap identified the `NT LM 0.12 (SMBv1)` dialect.
+
+### Security Analysis
+SMBv1 is a legacy protocol with known security weaknesses. Its presence indicates that the server supports an outdated protocol; further assessment is required to determine the actual exposure and impact.
+
+### Recommendations
+- Disable SMBv1 where it is not required.
+- Prefer supported SMB2/SMB3 dialects.
+- Restrict SMB access to trusted hosts and networks.
+- Verify protocol configuration after making changes.
+
+### Learning Outcome
+Practiced using Nmap's `smb-protocols` script to identify SMB dialects and interpret protocol-related security findings.
+
+### Evidence
+Screenshot : `screenshots/smb-protocols.png`
