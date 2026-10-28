@@ -173,7 +173,6 @@ Practiced using Nmap's `smb-protocols` script to identify SMB dialects and inter
 Screenshot : `screenshots/smb-protocols.png`
 
 
-
 ### Practical 5: SMB Security Mode and Message Signing Enumeration
 
 **Objective:** Check the SMB security mode and determine whether SMB message signing is enabled or disabled.
