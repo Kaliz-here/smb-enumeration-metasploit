@@ -177,12 +177,12 @@ Screenshot : `screenshots/smb-protocols.png`
 
 **Objective:** Check the SMB security mode and determine whether SMB message signing is enabled or disabled.
 
-**Target:** `192.168.1.39` (authorized lab machine)
+**Target:** `192.168.1.45` (authorized lab machine)
 
 **Command:**
 
 ```bash
-sudo nmap -p 445 --script smb-security-mode -vv 192.168.1.39
+sudo nmap -p 445 --script smb-security-mode -vv 192.168.1.45
 ```
 
 **Observed Results:**
