@@ -171,3 +171,40 @@ Practiced using Nmap's `smb-protocols` script to identify SMB dialects and inter
 
 ### Evidence
 Screenshot : `screenshots/smb-protocols.png`
+
+
+
+### Practical 5: SMB Security Mode and Message Signing Enumeration
+
+**Objective:** Check the SMB security mode and determine whether SMB message signing is enabled or disabled.
+
+**Target:** `192.168.1.39` (authorized lab machine)
+
+**Command:**
+
+```bash
+sudo nmap -p 445 --script smb-security-mode -vv 192.168.1.39
+```
+
+**Observed Results:**
+
+- TCP port 445 was open.
+- Account context reported: `guest`
+- Authentication level reported: `user`muje
+- Challenge-response authentication: supported
+- Message signing: `disabled`
+
+**Security Analysis:**
+
+The scan reported that SMB message signing was disabled. Depending on the SMB configuration and network conditions, this can increase the risk of SMB message tampering and certain man-in-the-middle attacks.
+
+**Recommendations:**
+
+- Enable SMB signing where supported and required by the environment.
+- Prefer SMB2/SMB3 with secure configurations instead of legacy SMB1.
+- Restrict SMB access to trusted hosts and networks.
+- Re-test after making configuration changes.
+
+**Evidence:** `screenshots/smb-signing-check.png`
+
+**Learning Outcome:** Practiced checking SMB security settings with Nmap NSE scripts and interpreting the message-signing result.
